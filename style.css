@@ -455,8 +455,10 @@ h3 {
   border-radius: 50% 50% 40% 40%;
   background: radial-gradient(circle at 50% 34%, rgba(255, 183, 151, 0.42), transparent 48%);
   filter: blur(22px);
-  opacity: 0.9;
-  z-index: 0;
+  /* show this decorative glow in front of the photo */
+  opacity: 0.6;
+  z-index: 3;
+  pointer-events: none;
 }
 
 /* Hero photo sits inside the art panel and fills it completely */
@@ -794,6 +796,13 @@ h3 {
   width: 112px;
   background: linear-gradient(180deg, #7dd3fc, #4f82ea);
   transform: rotate(11deg);
+}
+
+/* Ensure decorative icons and gifts appear above the photo */
+.hero-art .spark,
+.hero-art .gift {
+  z-index: 4;
+  pointer-events: none;
 }
 
 /* ========================================
