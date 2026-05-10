@@ -212,5 +212,44 @@
       </div>
     </section>
   </main>
+
+  <!-- Floating balloon launcher button -->
+  <button class="floating-balloon-btn" id="launchBalloonsBtn" aria-label="Launch balloons">
+    🎈
+  </button>
+
+  <!-- Container for dynamically created balloons -->
+  <div id="balloonContainer" aria-hidden="true"></div>
+
+  <script>
+    const launchBtn = document.getElementById('launchBalloonsBtn');
+    const balloonContainer = document.getElementById('balloonContainer');
+    const balloonColors = ['#ff6b93', '#ffd700', '#6ac1ff', '#70d9d1', '#d084ff', '#ff1493', '#ffaa00', '#52c9a5'];
+
+    launchBtn.addEventListener('click', () => {
+      // Create 8 balloons with random properties
+      for (let i = 0; i < 8; i++) {
+        const balloon = document.createElement('div');
+        balloon.className = 'dynamic-balloon';
+        
+        const randomColor = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+        const randomLeft = Math.random() * 80 + 10; // 10% to 90%
+        const randomDelay = i * 0.1; // Stagger the launches
+        const randomDuration = 4 + Math.random() * 2; // 4-6 seconds
+        
+        balloon.style.left = randomLeft + '%';
+        balloon.style.background = randomColor;
+        balloon.style.animation = 'floatUp ' + randomDuration + 's ease-in forwards';
+        balloon.style.animationDelay = randomDelay + 's';
+        
+        balloonContainer.appendChild(balloon);
+        
+        // Remove balloon from DOM after animation completes
+        setTimeout(() => {
+          balloon.remove();
+        }, (randomDuration + randomDelay) * 1000);
+      }
+    });
+  </script>
 </body>
 </html>
