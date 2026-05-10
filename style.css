@@ -148,7 +148,7 @@ h1 {
 h2 {
   font-size: clamp(2.3rem, 6vw, 4.4rem);
   line-height: 0.95;
-  max-width: 9ch;
+  max-width: 30ch;
 }
 
 h3 {
@@ -158,7 +158,7 @@ h3 {
 
 /* Hero title: Large opening heading with multi-layer glow effect */
 .hero-title {
-  max-width: 7ch;
+  max-width: 18ch;
   margin-top: 0.15rem;
   color: #fefcf9;
   /* Multi-layer text-shadow creates warm-to-cool glow (gold → rose → sky blue) */
@@ -176,7 +176,7 @@ h3 {
 /* Hero subtitle: Supporting text below main title */
 .hero-subtitle {
   margin: 0.85rem 0 0;
-  max-width: 30rem;
+  max-width: 40rem;
   color: rgba(254, 249, 245, 0.88);
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   line-height: 1.7;
@@ -187,7 +187,7 @@ h3 {
 /* Body text: Main paragraph styling with optional glow */
 .lead {
   margin: 1.05rem 0 0;
-  max-width: 36rem;
+  max-width: 80rem;
   color: rgba(255, 242, 232, 0.76);
   font-size: 1.02rem;
   line-height: 1.78;
@@ -1311,7 +1311,7 @@ h3 {
 
 /* Final message heading with extra glow */
 .final-glow {
-  max-width: 11ch;
+  max-width: 20ch;
   margin-left: auto;
   margin-right: auto;
   color: #fff9f5;
