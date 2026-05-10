@@ -11,16 +11,16 @@
   <header class="topbar">
     <a href="/">Birthday Wishes</a>
     <nav aria-label="Section navigation">
-      <a href="#memories">Memories</a>
-      <a href="#gallery">Gallery</a>
       <a href="#balloons">Balloons</a>
+      <a href="#gallery">Gallery</a>
       <a href="#cake">Cake</a>
+      <a href="#memories">Memories</a>
       <a href="#final-message">Final Message</a>
     </nav>
   </header>
 
   <main class="page">
-    <!-- SECTION 1: HERO - Opening scene with title and call-to-action -->
+    <!-- Main Section -->
     <section id="hero" class="panel hero">
       <div class="scene">
         <p class="eyebrow">A celebration in five scenes</p>
@@ -46,35 +46,28 @@
       </div>
     </section>
 
-    <!-- SECTION 2: MEMORIES - Photo/story cards with glassmorphism -->
-    <section id="memories" class="panel memories">
-      <div class="scene split-layout">
+    <!-- Belloons -->
+    <section id="balloons" class="panel balloons">
+      <div class="scene split-layout center-gap">
         <div>
-          <p class="eyebrow">Memories</p>
-          <h2 class="hero-title">Moments that become forever.</h2>
-          <p class="lead">The brightest birthdays bloom from small, glowing scenes: shared laughter, thoughtful gestures, and stories that sparkle with each retelling.</p>
+          <p class="eyebrow">Balloons</p>
+          <h2>Lift the mood, raise the ceiling.</h2>
+          <p class="lead">Color does a lot of the work here. The balloons float in layered clusters so the page feels alive as you scroll through it.</p>
         </div>
-        <div class="memory-grid" aria-label="Memory cards">
-            <article class="memory-card tilt-left">
-              <span>01</span>
-              <h3>The first spark</h3>
-              <p>That moment when the evening found its light—a laugh that echoed and set everything in motion.</p>
-            </article>
-            <article class="memory-card tilt-right">
-              <span>02</span>
-              <h3>Golden hour glow</h3>
-              <p>Soft light spilling over warm skin and genuine smiles, framed in a way that feels eternal.</p>
-            </article>
-            <article class="memory-card tilt-left alt">
-              <span>03</span>
-              <h3>Whispered wishes</h3>
-              <p>A quiet, tender moment before the candles burned bright—a dream made into words.</p>
-            </article>
+        <div class="balloon-stage" aria-hidden="true">
+          <span class="balloon balloon-a"></span>
+          <span class="balloon balloon-b"></span>
+          <span class="balloon balloon-c"></span>
+          <span class="balloon balloon-d"></span>
+          <span class="string string-a"></span>
+          <span class="string string-b"></span>
+          <span class="string string-c"></span>
+          <span class="string string-d"></span>
         </div>
       </div>
     </section>
 
-      <!-- SECTION: GALLERY - display all photos from the photos/ folder -->
+      <!-- Gallery -->
       <section id="gallery" class="panel gallery">
         <div class="scene gallery-scene">
           <div class="gallery-header">
@@ -143,28 +136,7 @@
         </div>
       </section>
 
-    <!-- SECTION 3: BALLOONS - Floating animated balloons -->
-    <section id="balloons" class="panel balloons">
-      <div class="scene split-layout center-gap">
-        <div>
-          <p class="eyebrow">Balloons</p>
-          <h2>Lift the mood, raise the ceiling.</h2>
-          <p class="lead">Color does a lot of the work here. The balloons float in layered clusters so the page feels alive as you scroll through it.</p>
-        </div>
-        <div class="balloon-stage" aria-hidden="true">
-          <span class="balloon balloon-a"></span>
-          <span class="balloon balloon-b"></span>
-          <span class="balloon balloon-c"></span>
-          <span class="balloon balloon-d"></span>
-          <span class="string string-a"></span>
-          <span class="string string-b"></span>
-          <span class="string string-c"></span>
-          <span class="string string-d"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: CAKE - CSS-drawn birthday cake with animated flames -->
+    <!-- Cake -->
     <section id="cake" class="panel cake">
       <div class="scene split-layout cake-layout">
         <div>
@@ -191,6 +163,34 @@
           <div class="cake-candle candle-right">
             <span class="cake-flame flame-right"></span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Some wishes -->
+    <section id="memories" class="panel memories">
+      <div class="scene split-layout">
+        <div>
+          <p class="eyebrow">Memories</p>
+          <h2 class="hero-title">Moments that become forever.</h2>
+          <p class="lead">The brightest birthdays bloom from small, glowing scenes: shared laughter, thoughtful gestures, and stories that sparkle with each retelling.</p>
+        </div>
+        <div class="memory-grid" aria-label="Memory cards">
+            <article class="memory-card tilt-left">
+              <span>01</span>
+              <h3>The first spark</h3>
+              <p>That moment when the evening found its light—a laugh that echoed and set everything in motion.</p>
+            </article>
+            <article class="memory-card tilt-right">
+              <span>02</span>
+              <h3>Golden hour glow</h3>
+              <p>Soft light spilling over warm skin and genuine smiles, framed in a way that feels eternal.</p>
+            </article>
+            <article class="memory-card tilt-left alt">
+              <span>03</span>
+              <h3>Whispered wishes</h3>
+              <p>A quiet, tender moment before the candles burned bright—a dream made into words.</p>
+            </article>
         </div>
       </div>
     </section>
