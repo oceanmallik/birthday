@@ -43,12 +43,15 @@
   /* Border and line colors */
   --line: rgba(255, 255, 255, 0.08);
   
-  /* Accent colors (warm and cool palette) */
-  --peach: #ffb89d;
-  --rose: #ff8fa3;
-  --gold: #ffd584;
-  --mint: #8ceccb;
-  --sky: #a8d5ff;
+  /* Accent colors (warm and cool palette) - MORE VIBRANT */
+  --peach: #ffab7f;
+  --rose: #ff6b93;
+  --gold: #ffd700;
+  --mint: #70d9d1;
+  --sky: #6ac1ff;
+  --purple: #d084ff;
+  --hot-pink: #ff1493;
+  --lime: #9fff1f;
   
   /* Surface and glow effects */
   --surface: rgba(255, 255, 255, 0.038);
@@ -156,21 +159,22 @@ h3 {
   line-height: 1.05;
 }
 
-/* Hero title: Large opening heading with multi-layer glow effect */
+/* Hero title: Large opening heading with multi-layer glow effect - ENHANCED CELEBRATION */
 .hero-title {
   max-width: 26ch;
   margin-top: 0.15rem;
-  color: #fefcf9;
+  color: #fffbf8;
   /* Multi-layer text-shadow creates warm-to-cool glow (gold → rose → sky blue) */
   text-shadow:
-    0 0 12px rgba(255, 211, 126, 0.42),
-    0 0 28px rgba(255, 211, 126, 0.48),
-    0 0 56px rgba(255, 125, 154, 0.32),
-    0 0 100px rgba(158, 199, 255, 0.22),
-    0 0 160px rgba(255, 141, 163, 0.14);
+    0 0 12px rgba(255, 215, 0, 0.48),
+    0 0 28px rgba(255, 215, 0, 0.56),
+    0 0 56px rgba(255, 107, 147, 0.42),
+    0 0 100px rgba(106, 193, 255, 0.28),
+    0 0 160px rgba(208, 132, 255, 0.18);
   /* Additional drop-shadow filter for extra depth */
-  filter: drop-shadow(0 0 20px rgba(255, 211, 126, 0.24)) drop-shadow(0 0 40px rgba(255, 141, 163, 0.16));
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.32)) drop-shadow(0 0 40px rgba(255, 107, 147, 0.24));
   letter-spacing: -0.02em;
+  animation: titlePulse 3s ease-in-out infinite;
 }
 
 /* Hero subtitle: Supporting text below main title */
@@ -193,14 +197,15 @@ h3 {
   line-height: 1.78;
 }
 
-/* Eyebrow text: Small uppercase labels for section names */
+/* Eyebrow text: Small uppercase labels for section names - VIBRANT */
 .eyebrow {
   margin: 0 0 1rem;
-  color: rgba(246, 210, 127, 0.88);
+  color: #ffd700;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
 
 /* ========================================
@@ -361,17 +366,18 @@ h3 {
   transform: translateY(-4px);
 }
 
-/* Primary button: Bright yellow gradient with glow */
+/* Primary button: Bright yellow gradient with glow - MORE VIBRANT */
 .primary {
-  color: #1a1019;
-  background: linear-gradient(135deg, #fff3c9, #ffbf8b);
-  box-shadow: 0 18px 42px rgba(255, 184, 122, 0.2);
+  color: #1a0f00;
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  box-shadow: 0 18px 42px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+  transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), background 240ms ease, box-shadow 240ms ease, filter 240ms ease;
 }
 
 .primary:hover {
-  background: linear-gradient(135deg, #fffae0, #ffc49e);
-  box-shadow: 0 28px 58px rgba(255, 184, 122, 0.35), 0 0 24px rgba(255, 211, 126, 0.28);
-  filter: brightness(1.1);
+  background: linear-gradient(135deg, #ffeb3b, #ffba00);
+  box-shadow: 0 28px 58px rgba(255, 215, 0, 0.45), 0 0 32px rgba(255, 215, 0, 0.38), 0 0 48px rgba(255, 107, 147, 0.18);
+  filter: brightness(1.15);
 }
 
 /* Secondary button: Transparent with border */
@@ -405,15 +411,15 @@ h3 {
   gap: 1rem;
   text-align: left;
   width: 100%;
-  /* Section-specific background gradients */
+  /* Section-specific background gradients - MORE VIBRANT */
   background:
-    radial-gradient(ellipse at 22% 20%, rgba(255, 211, 126, 0.28), transparent 22%),
-    radial-gradient(ellipse at 72% 38%, rgba(255, 141, 163, 0.22), transparent 28%),
-    radial-gradient(ellipse at 68% 78%, rgba(158, 199, 255, 0.16), transparent 26%),
+    radial-gradient(ellipse at 22% 20%, rgba(255, 215, 0, 0.32), transparent 22%),
+    radial-gradient(ellipse at 72% 38%, rgba(255, 107, 147, 0.28), transparent 28%),
+    radial-gradient(ellipse at 68% 78%, rgba(106, 193, 255, 0.22), transparent 26%),
     linear-gradient(135deg, rgba(21, 15, 32, 0.94), rgba(14, 10, 22, 0.94) 52%, rgba(25, 12, 20, 0.95));
   box-shadow:
     inset 0 -1px 0 rgba(255, 255, 255, 0.04),
-    0 0 40px rgba(255, 211, 126, 0.08);
+    0 0 60px rgba(255, 215, 0, 0.12);
   border-radius: 0.5rem;
 }
 
@@ -740,22 +746,22 @@ h3 {
   margin: 0;
 }
 
-/* Decorative sparks (twinkling stars) */
+/* Decorative sparks (twinkling stars) - ENHANCED */
 .spark {
   position: absolute;
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: white;
-  box-shadow: 0 0 18px 6px rgba(255, 248, 234, 0.14);
-  animation: twinkle 3.2s cubic-bezier(0.36, 0, 0.64, 1) infinite;
+  box-shadow: 0 0 18px 6px rgba(255, 248, 234, 0.24);
+  animation: twinkle 2s cubic-bezier(0.36, 0, 0.64, 1) infinite;
 }
 
-.spark-one { top: 14%; left: 22%; }
-.spark-two { top: 23%; right: 18%; animation-delay: 0.9s; }
-.spark-three { bottom: 28%; left: 34%; animation-delay: 1.7s; }
+.spark-one { top: 14%; left: 22%; background: #ffd700; }
+.spark-two { top: 23%; right: 18%; animation-delay: 0.6s; background: #ff6b93; }
+.spark-three { bottom: 28%; left: 34%; animation-delay: 1.2s; background: #70d9d1; }
 
-/* Decorative gift boxes */
+/* Decorative gift boxes - MORE VIBRANT */
 .gift {
   position: absolute;
   bottom: 11%;
@@ -763,6 +769,7 @@ h3 {
   aspect-ratio: 1;
   border-radius: 1.2rem;
   box-shadow: inset 0 -18px 28px rgba(0, 0, 0, 0.18), var(--shadow);
+  animation: giftBounce 2.5s ease-in-out infinite;
 }
 
 .gift::before,
@@ -771,7 +778,7 @@ h3 {
   position: absolute;
   inset: 0;
   margin: auto;
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.88);
   border-radius: 999px;
 }
 
@@ -787,15 +794,17 @@ h3 {
 
 .gift-one {
   left: 12%;
-  background: linear-gradient(180deg, #ff8aa5, #e65b7d);
+  background: linear-gradient(180deg, #ff6b93, #d9396f);
   transform: rotate(-8deg);
+  animation-delay: 0.2s;
 }
 
 .gift-two {
   right: 16%;
   width: 112px;
-  background: linear-gradient(180deg, #7dd3fc, #4f82ea);
+  background: linear-gradient(180deg, #6ac1ff, #2c8dd9);
   transform: rotate(11deg);
+  animation-delay: 0.4s;
 }
 
 /* Ensure decorative icons and gifts appear above the photo */
@@ -885,16 +894,16 @@ h3 {
   pointer-events: none;
 }
 
-/* Memory card hover state */
+/* Memory card hover state - MORE VIBRANT */
 .memory-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.32);
-  background-color: rgba(255, 255, 255, 0.058);
+  transform: translateY(-10px) scale(1.03);
+  border-color: rgba(255, 215, 0, 0.42);
+  background-color: rgba(255, 255, 255, 0.08);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.42),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.14),
-    0 32px 72px rgba(4, 8, 20, 0.42),
-    0 0 28px rgba(158, 199, 255, 0.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.48),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.16),
+    0 32px 72px rgba(4, 8, 20, 0.52),
+    0 0 32px rgba(255, 215, 0, 0.18);
 }
 
 /* Card number badge */
@@ -1037,17 +1046,17 @@ h3 {
   transform: translateX(-50%);
 }
 
-/* Individual balloon colors and positions */
+/* Individual balloon colors and positions - MORE VIBRANT */
 .balloon-a {
   top: 12%;
   left: 12%;
-  background: linear-gradient(180deg, #ffb58d, #ff7b78);
+  background: linear-gradient(180deg, #ff6b93, #e6104b);
 }
 
 .balloon-b {
   top: 4%;
   right: 22%;
-  background: linear-gradient(180deg, #93c5fd, #4f8ae8);
+  background: linear-gradient(180deg, #6ac1ff, #1e88e5);
   animation-duration: 8.2s;
   animation-delay: 0.6s;
 }
@@ -1056,7 +1065,7 @@ h3 {
   top: 33%;
   left: 38%;
   width: 126px;
-  background: linear-gradient(180deg, #ffd36a, #ff9f43);
+  background: linear-gradient(180deg, #ffd700, #ff9500);
   animation-duration: 7.8s;
   animation-delay: 0.2s;
 }
@@ -1065,7 +1074,7 @@ h3 {
   top: 42%;
   right: 8%;
   width: 104px;
-  background: linear-gradient(180deg, #8be8c6, #52c9a5);
+  background: linear-gradient(180deg, #70d9d1, #26a69a);
   animation-duration: 8.6s;
   animation-delay: 0.4s;
 }
@@ -1258,17 +1267,17 @@ h3 {
   margin-left: 56px;
 }
 
-/* Animated flame on candles */
+/* Animated flame on candles - BRIGHTER */
 .cake-flame {
   top: -32px;
   width: 26px;
   height: 42px;
   border-radius: 50% 50% 45% 45%;
-  background: radial-gradient(circle at 50% 35%, #fff9d7 0 22%, #ffd36a 45%, #ff8f6b 75%, transparent 76%);
-  box-shadow: 0 0 40px 9px rgba(255, 211, 106, 0.2);
-  animation: flame 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  background: radial-gradient(circle at 50% 35%, #fffaeb 0 22%, #ffd700 45%, #ff8c00 75%, transparent 76%);
+  box-shadow: 0 0 40px 12px rgba(255, 215, 0, 0.32), 0 0 20px 4px rgba(255, 107, 147, 0.24);
+  animation: flame 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
   transform-origin: center bottom;
-  opacity: 0.92;
+  opacity: 0.96;
 }
 
 .flame-left {
@@ -1377,21 +1386,79 @@ h3 {
   opacity: 0.8;
 }
 
-/* Confetti particles with unique colors and positions */
-.confetti-1 { left: 8%; background: #ff7b78; animation-delay: 0s; }
-.confetti-2 { left: 15%; background: #ffd36a; width: 8px; height: 14px; animation-delay: 1.2s; }
-.confetti-3 { left: 24%; background: #93c5fd; animation-delay: 2.1s; }
-.confetti-4 { left: 35%; background: #8be8c6; width: 7px; height: 13px; animation-delay: 0.8s; }
-.confetti-5 { left: 48%; background: #ffbf86; animation-delay: 2.8s; }
-.confetti-6 { left: 58%; background: #ff6f91; width: 8px; height: 15px; animation-delay: 1.6s; }
-.confetti-7 { left: 68%; background: #7dd3fc; animation-delay: 3.2s; }
-.confetti-8 { left: 76%; background: #ffd36a; width: 7px; height: 12px; animation-delay: 0.4s; }
-.confetti-9 { left: 86%; background: #8be8c6; animation-delay: 1.9s; }
-.confetti-10 { left: 92%; background: #ff8aa5; width: 8px; height: 14px; animation-delay: 2.5s; }
+/* Confetti particles with unique colors and positions - MORE VIBRANT BIRTHDAY COLORS */
+.confetti-1 { left: 8%; background: #ff6b93; animation-delay: 0s; }
+.confetti-2 { left: 15%; background: #ffd700; width: 8px; height: 14px; animation-delay: 1.2s; }
+.confetti-3 { left: 24%; background: #6ac1ff; animation-delay: 2.1s; }
+.confetti-4 { left: 35%; background: #70d9d1; width: 7px; height: 13px; animation-delay: 0.8s; }
+.confetti-5 { left: 48%; background: #d084ff; animation-delay: 2.8s; }
+.confetti-6 { left: 58%; background: #ff1493; width: 8px; height: 15px; animation-delay: 1.6s; }
+.confetti-7 { left: 68%; background: #6ac1ff; animation-delay: 3.2s; }
+.confetti-8 { left: 76%; background: #ffd700; width: 7px; height: 12px; animation-delay: 0.4s; }
+.confetti-9 { left: 86%; background: #70d9d1; animation-delay: 1.9s; }
+.confetti-10 { left: 92%; background: #ff6b93; width: 8px; height: 14px; animation-delay: 2.5s; }
 
 /* ========================================
    ANIMATIONS & KEYFRAMES
    ======================================== */
+
+/* Bunting decoration - festive banner */
+.bunting {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.bunting-flag {
+  display: block;
+  width: 32px;
+  height: 40px;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  animation: buntingWave 2.5s ease-in-out infinite;
+}
+
+.bunting-1 { background: #ff6b93; animation-delay: 0s; }
+.bunting-2 { background: #ffd700; animation-delay: 0.2s; }
+.bunting-3 { background: #70d9d1; animation-delay: 0.4s; }
+.bunting-4 { background: #d084ff; animation-delay: 0.6s; }
+.bunting-5 { background: #ff6b93; animation-delay: 0.8s; }
+.bunting-6 { background: #ffd700; animation-delay: 1s; }
+.bunting-7 { background: #70d9d1; animation-delay: 1.2s; }
+.bunting-8 { background: #d084ff; animation-delay: 1.4s; }
+
+/* Mini confetti in hero section */
+.hero-confetti {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.mini-confetti {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: miniConfettiFall 4s ease-in infinite;
+}
+
+.mini-confetti-1 { left: 15%; background: #ff6b93; animation-delay: 0s; }
+.mini-confetti-2 { left: 25%; background: #ffd700; animation-delay: 0.8s; }
+.mini-confetti-3 { left: 35%; background: #70d9d1; animation-delay: 1.6s; }
+.mini-confetti-4 { left: 45%; background: #d084ff; animation-delay: 0.4s; }
+.mini-confetti-5 { left: 55%; background: #ff6b93; animation-delay: 1.2s; }
+.mini-confetti-6 { left: 65%; background: #ffd700; animation-delay: 2s; }
+.mini-confetti-7 { left: 75%; background: #70d9d1; animation-delay: 0.6s; }
+.mini-confetti-8 { left: 85%; background: #d084ff; animation-delay: 1.4s; }
 
 /* Balloon floating animation: Gentle up-and-down movement */
 @keyframes balloonFloat {
@@ -1417,14 +1484,16 @@ h3 {
   }
 }
 
-/* Flame flickering: Subtle scale and rotation */
+/* Flame flickering: Subtle scale and rotation - BRIGHTER */
 @keyframes flame {
   0%,
   100% {
     transform: translateX(-50%) scale(0.98) rotate(-2deg);
+    background: radial-gradient(circle at 50% 35%, #fffaeb 0 22%, #ffd700 45%, #ff8c00 75%, transparent 76%);
   }
   50% {
-    transform: translateX(-50%) scale(1.05) rotate(2deg);
+    transform: translateX(-50%) scale(1.08) rotate(2deg);
+    background: radial-gradient(circle at 50% 35%, #ffffe0 0 22%, #ffed4e 45%, #ff6347 75%, transparent 76%);
   }
 }
 
@@ -1472,6 +1541,64 @@ h3 {
   100% {
     transform: translate3d(0, 115vh, 0) rotate(360deg);
     opacity: 0;
+  }
+}
+
+/* Mini confetti falling in hero */
+@keyframes miniConfettiFall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(300px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Bunting wave animation */
+@keyframes buntingWave {
+  0%, 100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+/* Title pulse effect */
+@keyframes titlePulse {
+  0%, 100% {
+    text-shadow:
+      0 0 12px rgba(255, 215, 0, 0.48),
+      0 0 28px rgba(255, 215, 0, 0.56),
+      0 0 56px rgba(255, 107, 147, 0.42),
+      0 0 100px rgba(106, 193, 255, 0.28),
+      0 0 160px rgba(208, 132, 255, 0.18);
+  }
+  50% {
+    text-shadow:
+      0 0 18px rgba(255, 215, 0, 0.58),
+      0 0 36px rgba(255, 215, 0, 0.68),
+      0 0 72px rgba(255, 107, 147, 0.52),
+      0 0 120px rgba(106, 193, 255, 0.36),
+      0 0 200px rgba(208, 132, 255, 0.28);
+  }
+}
+
+/* Gift bounce animation */
+@keyframes giftBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-8deg);
   }
 }
 
