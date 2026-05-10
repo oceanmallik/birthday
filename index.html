@@ -3,14 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic Page</title>
+  <title>Birthday Wishes</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="container">
-    <h1>Hello, world!</h1>
-    <p>This is a basic HTML page with an external CSS file.</p>
-    <button type="button">Click me</button>
+  <!-- NAVIGATION BAR: Fixed header with logo and section links -->
+  <header class="topbar">
+    <a href="#hero">Birthday Wishes</a>
+    <nav aria-label="Section navigation">
+      <a href="#memories">Memories</a>
+      <a href="#balloons">Balloons</a>
+      <a href="#cake">Cake</a>
+      <a href="#final-message">Final Message</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- SECTION 1: HERO - Opening scene with title and call-to-action -->
+    <section id="hero" class="panel hero">
+      <div class="scene">
+        <p class="eyebrow">A celebration in five scenes</p>
+        <h1 class="hero-title">Happy Birthday</h1>
+        <p class="hero-subtitle">A glowing birthday moment made to feel warm, joyful, and unforgettable.</p>
+        <p class="lead">A full-screen scrollable birthday page with soft color, floating balloons, sweet memories, and one last message at the end.</p>
+        <div class="cta-row">
+          <a class="button primary" href="#memories">Start the story</a>
+          <a class="button secondary" href="#final-message">Jump to the finale</a>
+        </div>
+          <div class="scroll-indicator" aria-hidden="true">
+            <span></span>
+            <p>Scroll down</p>
+          </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="spark spark-one"></span>
+        <span class="spark spark-two"></span>
+        <span class="spark spark-three"></span>
+        <div class="gift gift-one"></div>
+        <div class="gift gift-two"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MEMORIES - Photo/story cards with glassmorphism -->
+    <section id="memories" class="panel memories">
+      <div class="scene split-layout">
+        <div>
+          <p class="eyebrow">Memories</p>
+          <h2>Little moments that stay bright.</h2>
+          <p class="lead">The best birthdays are built from tiny scenes: shared laughs, surprise plans, and the kind of stories that get retold every year.</p>
+        </div>
+        <div class="memory-grid" aria-label="Memory cards">
+          <article class="memory-card tilt-left">
+            <span>01</span>
+            <h3>First laugh</h3>
+            <p>The kind that started the whole evening on the right note.</p>
+          </article>
+          <article class="memory-card tilt-right">
+            <span>02</span>
+            <h3>Golden hour</h3>
+            <p>Soft light, warm smiles, and one photo worth keeping forever.</p>
+          </article>
+          <article class="memory-card tilt-left alt">
+            <span>03</span>
+            <h3>Midnight wish</h3>
+            <p>A quiet wish made just before the candles were lit.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: BALLOONS - Floating animated balloons -->
+    <section id="balloons" class="panel balloons">
+      <div class="scene split-layout center-gap">
+        <div>
+          <p class="eyebrow">Balloons</p>
+          <h2>Lift the mood, raise the ceiling.</h2>
+          <p class="lead">Color does a lot of the work here. The balloons float in layered clusters so the page feels alive as you scroll through it.</p>
+        </div>
+        <div class="balloon-stage" aria-hidden="true">
+          <span class="balloon balloon-a"></span>
+          <span class="balloon balloon-b"></span>
+          <span class="balloon balloon-c"></span>
+          <span class="balloon balloon-d"></span>
+          <span class="string string-a"></span>
+          <span class="string string-b"></span>
+          <span class="string string-c"></span>
+          <span class="string string-d"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CAKE - CSS-drawn birthday cake with animated flames -->
+    <section id="cake" class="panel cake">
+      <div class="scene split-layout cake-layout">
+        <div>
+          <p class="eyebrow">Cake</p>
+          <h2>Sweet layers, one candle for the wish.</h2>
+          <p class="lead">Built entirely with CSS, the cake becomes the centerpiece of the page: stacked layers, a glowing candle, and a soft table glow underneath.</p>
+        </div>
+        <div class="cake-scene" aria-hidden="true">
+          <div class="cake-halo"></div>
+          <div class="cake-plate"></div>
+          <div class="cake-shadow"></div>
+          <div class="cake-layer cake-layer-bottom"></div>
+          <div class="cake-layer cake-layer-middle"></div>
+          <div class="cake-layer cake-layer-top"></div>
+          <div class="cake-drip drip-left"></div>
+          <div class="cake-drip drip-center"></div>
+          <div class="cake-drip drip-right"></div>
+          <div class="cake-candle candle-left">
+            <span class="cake-flame flame-left"></span>
+          </div>
+          <div class="cake-candle candle-center">
+            <span class="cake-flame flame-center"></span>
+          </div>
+          <div class="cake-candle candle-right">
+            <span class="cake-flame flame-right"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FINAL MESSAGE - Closing with confetti animation -->
+    <section id="final-message" class="panel final-message">
+      <div class="confetti-field" aria-hidden="true">
+        <span class="confetti confetti-1"></span>
+        <span class="confetti confetti-2"></span>
+        <span class="confetti confetti-3"></span>
+        <span class="confetti confetti-4"></span>
+        <span class="confetti confetti-5"></span>
+        <span class="confetti confetti-6"></span>
+        <span class="confetti confetti-7"></span>
+        <span class="confetti confetti-8"></span>
+        <span class="confetti confetti-9"></span>
+        <span class="confetti confetti-10"></span>
+      </div>
+      <div class="scene final-card">
+        <p class="eyebrow">Final Message</p>
+        <h2 class="final-glow">Wishing You Happiness Forever ✨</h2>
+        <p class="lead">Happy birthday. May every year ahead bring light, laughter, and unforgettable moments.</p>
+        <a class="button primary" href="#hero">Back to the top</a>
+      </div>
+    </section>
   </main>
 </body>
 </html>

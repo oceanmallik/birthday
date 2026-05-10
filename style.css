@@ -1,42 +1,1518 @@
+/* ========================================
+   BIRTHDAY WISHES - CSS REFERENCE GUIDE
+   ========================================
+   
+   HOW TO CUSTOMIZE THIS SITE:
+   
+   1. COLORS: Change CSS variables in :root (line ~30)
+      Example: --gold, --rose, --sky, --mint
+   
+   2. FONTS: Look for "font-family" or "font-size" rules
+   
+   3. ANIMATIONS: Find @keyframes section near the end
+      Change animation-duration or animation-delay values
+   
+   4. LAYOUTS: Look for grid-template-columns or flexbox rules
+      Adjust gap, width, or padding values
+   
+   5. RESPONSIVE: Media queries start at the bottom
+      (980px, 640px, 420px breakpoints)
+   
+   ======================================== */
+
+/* ========================================
+   GLOBAL SETTINGS & COLOR VARIABLES
+   ======================================== */
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #f4f4f5;
-  color: #111827;
+/* Root variables: Colors and spacing tokens used throughout */
+:root {
+  color-scheme: light;
+  
+  /* Dark dreamy background colors */
+  --bg: #0a0812;
+  --bg-soft: #14111f;
+  
+  /* Text colors */
+  --text: #fef9f5;
+  --muted: rgba(254, 249, 245, 0.76);
+  
+  /* Border and line colors */
+  --line: rgba(255, 255, 255, 0.08);
+  
+  /* Accent colors (warm and cool palette) */
+  --peach: #ffb89d;
+  --rose: #ff8fa3;
+  --gold: #ffd584;
+  --mint: #8ceccb;
+  --sky: #a8d5ff;
+  
+  /* Surface and glow effects */
+  --surface: rgba(255, 255, 255, 0.038);
+  --surface-strong: rgba(255, 255, 255, 0.06);
+  --glow-warm: rgba(255, 211, 126, 0.32);
+  --glow-cool: rgba(158, 199, 255, 0.18);
+  --glow-rose: rgba(255, 141, 163, 0.22);
+  
+  /* Shadows for depth */
+  --shadow: 0 32px 80px rgba(2, 3, 8, 0.56);
 }
 
-.container {
+/* Smooth scrolling when clicking navigation links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   BODY & BACKGROUND
+   ======================================== */
+
+body {
+  margin: 0;
   min-height: 100vh;
-  display: grid;
-  place-content: center;
-  gap: 0.75rem;
-  text-align: center;
-  padding: 1.5rem;
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  /* Layered radial gradients create atmospheric depth */
+  background:
+    radial-gradient(ellipse at 15% 28%, rgba(255, 211, 126, 0.22), transparent 32%),
+    radial-gradient(ellipse at 82% 12%, rgba(158, 199, 255, 0.14), transparent 28%),
+    radial-gradient(ellipse at 65% 85%, rgba(255, 141, 163, 0.16), transparent 32%),
+    radial-gradient(ellipse at 8% 68%, rgba(140, 236, 203, 0.08), transparent 24%),
+    linear-gradient(180deg, #0f0a18 0%, #0b0814 28%, #070510 72%, #05030a 100%);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Atmospheric glow layer (floating glows) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 211, 126, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(158, 199, 255, 0.06), transparent 35%),
+    radial-gradient(circle at 50% 90%, rgba(255, 141, 163, 0.05), transparent 45%);
+  z-index: 1;
+}
+
+/* Subtle grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-position: 0 0, 24px 24px;
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 85%);
+  z-index: 1;
+}
+
+/* Basic link and image resets */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========================================
+   TYPOGRAPHY & TEXT STYLING
+   ======================================== */
+
+/* All heading elements: Georgia serif font for elegant typography */
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 h1 {
-  margin: 0;
-  font-size: 2rem;
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  line-height: 0.88;
+  max-width: 8ch;
 }
 
-p {
-  margin: 0;
-  color: #374151;
+h2 {
+  font-size: clamp(2.3rem, 6vw, 4.4rem);
+  line-height: 0.95;
+  max-width: 9ch;
 }
 
-button {
-  justify-self: center;
-  padding: 0.6rem 1rem;
-  border: 1px solid #d1d5db;
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.05;
+}
+
+/* Hero title: Large opening heading with multi-layer glow effect */
+.hero-title {
+  max-width: 7ch;
+  margin-top: 0.15rem;
+  color: #fefcf9;
+  /* Multi-layer text-shadow creates warm-to-cool glow (gold → rose → sky blue) */
+  text-shadow:
+    0 0 12px rgba(255, 211, 126, 0.42),
+    0 0 28px rgba(255, 211, 126, 0.48),
+    0 0 56px rgba(255, 125, 154, 0.32),
+    0 0 100px rgba(158, 199, 255, 0.22),
+    0 0 160px rgba(255, 141, 163, 0.14);
+  /* Additional drop-shadow filter for extra depth */
+  filter: drop-shadow(0 0 20px rgba(255, 211, 126, 0.24)) drop-shadow(0 0 40px rgba(255, 141, 163, 0.16));
+  letter-spacing: -0.02em;
+}
+
+/* Hero subtitle: Supporting text below main title */
+.hero-subtitle {
+  margin: 0.85rem 0 0;
+  max-width: 30rem;
+  color: rgba(254, 249, 245, 0.88);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 20px rgba(158, 199, 255, 0.08);
+}
+
+/* Body text: Main paragraph styling with optional glow */
+.lead {
+  margin: 1.05rem 0 0;
+  max-width: 36rem;
+  color: rgba(255, 242, 232, 0.76);
+  font-size: 1.02rem;
+  line-height: 1.78;
+}
+
+/* Eyebrow text: Small uppercase labels for section names */
+.eyebrow {
+  margin: 0 0 1rem;
+  color: rgba(246, 210, 127, 0.88);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   NAVIGATION BAR (TOPBAR)
+   ======================================== */
+
+.topbar {
+  position: fixed;
+  inset: 1rem 1rem auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  /* Glassmorphic effect: blurred background + semi-transparent */
+  background: rgba(11, 9, 17, 0.52);
+  backdrop-filter: blur(22px) saturate(120%);
+  box-shadow: 0 18px 50px rgba(4, 5, 12, 0.28);
+  transition: all 300ms ease;
+}
+
+/* Brand/logo link in navigation */
+.topbar > a {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 240ms ease, filter 240ms ease;
+}
+
+.topbar > a:hover {
+  color: var(--text);
+  filter: brightness(1.15);
+}
+
+/* Navigation links container */
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.9rem;
+}
+
+/* Individual navigation links with hover underline */
+.topbar nav a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  position: relative;
+  transition: color 240ms ease, text-shadow 240ms ease;
+  padding-bottom: 0.15rem;
+}
+
+/* Animated underline that appears on hover */
+.topbar nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--sky));
+  border-radius: 1px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: opacity 240ms ease, transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.topbar nav a:hover {
+  color: var(--text);
+  text-shadow: 0 0 12px rgba(158, 199, 255, 0.24);
+}
+
+.topbar nav a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* ========================================
+   PAGE & SECTION LAYOUT
+   ======================================== */
+
+.page {
+  scroll-snap-type: y proximity;
+}
+
+/* Panels: Full-screen sections that users scroll through */
+.panel {
+  position: relative;
+  min-height: 100vh;
+  padding: 7.5rem 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  isolation: isolate;
+  z-index: 2;
+}
+
+/* Bottom border line on panels */
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  box-shadow: 0 0 24px rgba(158, 199, 255, 0.12);
+}
+
+/* Background layer pseudo-element for panel-specific backgrounds */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.92;
+}
+
+/* Scroll-linked fade-in animation for sections (fallback for browsers without animation-timeline) */
+@supports (animation-timeline: view()) {
+  .panel {
+    animation: sectionFadeIn 1s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+}
+
+/* Scene: Inner container for aligning content */
+.scene {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  gap: 1.75rem;
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  transition: transform 240ms cubic-bezier(0.34, 1.56, 0.64, 1), background 240ms ease, border-color 240ms ease, box-shadow 240ms ease, filter 240ms ease;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+}
+
+/* Primary button: Bright yellow gradient with glow */
+.primary {
+  color: #1a1019;
+  background: linear-gradient(135deg, #fff3c9, #ffbf8b);
+  box-shadow: 0 18px 42px rgba(255, 184, 122, 0.2);
+}
+
+.primary:hover {
+  background: linear-gradient(135deg, #fffae0, #ffc49e);
+  box-shadow: 0 28px 58px rgba(255, 184, 122, 0.35), 0 0 24px rgba(255, 211, 126, 0.28);
+  filter: brightness(1.1);
+}
+
+/* Secondary button: Transparent with border */
+.secondary {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.secondary:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 32px rgba(93, 197, 253, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero,
+.cake,
+.final-message {
+  overflow: hidden;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.35rem;
+  text-align: left;
+  width: min(1120px, 100%);
+  /* Section-specific background gradients */
+  background:
+    radial-gradient(ellipse at 22% 20%, rgba(255, 211, 126, 0.28), transparent 22%),
+    radial-gradient(ellipse at 72% 38%, rgba(255, 141, 163, 0.22), transparent 28%),
+    radial-gradient(ellipse at 68% 78%, rgba(158, 199, 255, 0.16), transparent 26%),
+    linear-gradient(135deg, rgba(21, 15, 32, 0.94), rgba(14, 10, 22, 0.94) 52%, rgba(25, 12, 20, 0.95));
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 0 40px rgba(255, 211, 126, 0.08);
   border-radius: 0.5rem;
-  background: #ffffff;
-  cursor: pointer;
 }
 
-button:hover {
-  background: #f9fafb;
+.hero .scene {
+  justify-items: start;
+  text-align: left;
+}
+
+/* Art container on right side of hero */
+.hero-art {
+  align-self: center;
+  position: relative;
+  min-height: 520px;
+  border-radius: 2rem;
+  border: 1px solid rgba(158, 199, 255, 0.12);
+  background:
+    radial-gradient(ellipse at 38% 32%, rgba(255, 211, 126, 0.28), transparent 22%),
+    radial-gradient(ellipse at 65% 15%, rgba(158, 199, 255, 0.22), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
+  box-shadow:
+    0 0 60px rgba(158, 199, 255, 0.16),
+    0 0 120px rgba(255, 211, 126, 0.08),
+    0 32px 80px rgba(2, 3, 8, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 10% 10% 12%;
+  border-radius: 50% 50% 40% 40%;
+  background: radial-gradient(circle at 50% 34%, rgba(255, 183, 151, 0.42), transparent 48%);
+  filter: blur(22px);
+  opacity: 0.9;
+}
+
+/* CTA buttons row */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* Scroll down indicator */
+.scroll-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 2.25rem;
+  color: rgba(255, 247, 240, 0.75);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scroll-indicator span {
+  position: relative;
+  width: 28px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.scroll-indicator span::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff7f0;
+  transform: translateX(-50%);
+  animation: scrollCue 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.scroll-indicator p {
+  margin: 0;
+}
+
+/* Decorative sparks (twinkling stars) */
+.spark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 18px 6px rgba(255, 248, 234, 0.14);
+  animation: twinkle 3.2s cubic-bezier(0.36, 0, 0.64, 1) infinite;
+}
+
+.spark-one { top: 14%; left: 22%; }
+.spark-two { top: 23%; right: 18%; animation-delay: 0.9s; }
+.spark-three { bottom: 28%; left: 34%; animation-delay: 1.7s; }
+
+/* Decorative gift boxes */
+.gift {
+  position: absolute;
+  bottom: 11%;
+  width: 132px;
+  aspect-ratio: 1;
+  border-radius: 1.2rem;
+  box-shadow: inset 0 -18px 28px rgba(0, 0, 0, 0.18), var(--shadow);
+}
+
+.gift::before,
+.gift::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+}
+
+.gift::before {
+  width: 22px;
+  height: 100%;
+}
+
+.gift::after {
+  width: 100%;
+  height: 22px;
+}
+
+.gift-one {
+  left: 12%;
+  background: linear-gradient(180deg, #ff8aa5, #e65b7d);
+  transform: rotate(-8deg);
+}
+
+.gift-two {
+  right: 16%;
+  width: 112px;
+  background: linear-gradient(180deg, #7dd3fc, #4f82ea);
+  transform: rotate(11deg);
+}
+
+/* ========================================
+   MEMORIES SECTION
+   ======================================== */
+
+.memories {
+  background:
+    radial-gradient(ellipse at 15% 22%, rgba(255, 141, 163, 0.26), transparent 24%),
+    radial-gradient(ellipse at 85% 72%, rgba(140, 236, 203, 0.18), transparent 28%),
+    radial-gradient(ellipse at 50% 32%, rgba(255, 211, 127, 0.12), transparent 24%),
+    linear-gradient(135deg, rgba(24, 12, 30, 0.97), rgba(14, 12, 24, 0.96) 55%, rgba(16, 22, 32, 0.97));
+  box-shadow:
+    0 0 50px rgba(255, 141, 163, 0.08),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.memories::before {
+  background:
+    radial-gradient(ellipse at 28% 35%, rgba(255, 211, 126, 0.22), transparent 22%),
+    radial-gradient(ellipse at 70% 65%, rgba(255, 141, 163, 0.16), transparent 28%);
+}
+
+/* Two-column layout for text and cards */
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+  text-align: center;
+}
+
+.center-gap {
+  gap: 3rem;
+}
+
+.split-layout > * {
+  width: 100%;
+}
+
+/* Grid of memory cards */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Individual memory card with glassmorphism */
+.memory-card {
+  min-height: 170px;
+  padding: 1.25rem;
+  border: 1px solid rgba(158, 199, 255, 0.16);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06)),
+    rgba(255, 255, 255, 0.05);
+  /* Glassmorphic blur effect */
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    0 0 30px rgba(158, 199, 255, 0.08),
+    0 24px 60px rgba(2, 3, 8, 0.42);
+  overflow: hidden;
+  position: relative;
+  transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), border-color 260ms ease, box-shadow 260ms ease, background-color 260ms ease, backdrop-filter 260ms ease;
+}
+
+.memory-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.28), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 38%);
+  pointer-events: none;
+}
+
+/* Memory card hover state */
+.memory-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.32);
+  background-color: rgba(255, 255, 255, 0.058);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.14),
+    0 32px 72px rgba(4, 8, 20, 0.42),
+    0 0 28px rgba(158, 199, 255, 0.12);
+}
+
+/* Card number badge */
+.memory-card span {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.memory-card p {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Tilt effect on cards for visual interest */
+.tilt-left {
+  transform: rotate(-3deg) translateY(8px);
+}
+
+.tilt-right {
+  transform: rotate(4deg) translateY(-4px);
+}
+
+.alt {
+  background: linear-gradient(180deg, rgba(255, 211, 106, 0.16), rgba(255, 255, 255, 0.05));
+}
+
+/* ========================================
+   BALLOONS SECTION
+   ======================================== */
+
+.balloons {
+  background:
+    radial-gradient(ellipse at 22% 28%, rgba(158, 199, 255, 0.24), transparent 24%),
+    radial-gradient(ellipse at 76% 18%, rgba(255, 211, 127, 0.22), transparent 22%),
+    radial-gradient(ellipse at 70% 78%, rgba(140, 236, 203, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(16, 18, 32, 0.97), rgba(11, 14, 26, 0.96) 50%, rgba(20, 24, 40, 0.97));
+  box-shadow:
+    0 0 60px rgba(158, 199, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.balloons::before {
+  background:
+    radial-gradient(ellipse at 32% 68%, rgba(255, 141, 163, 0.16), transparent 26%),
+    radial-gradient(ellipse at 62% 38%, rgba(255, 255, 255, 0.08), transparent 22%);
+}
+
+/* Container holding all balloons */
+.balloon-stage {
+  position: relative;
+  min-height: 520px;
+  border-radius: 2rem;
+  border: 1px solid rgba(158, 199, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at bottom, rgba(255, 255, 255, 0.08), transparent 52%);
+  overflow: hidden;
+  box-shadow:
+    0 0 70px rgba(158, 199, 255, 0.12),
+    0 0 140px rgba(255, 211, 126, 0.06),
+    0 32px 80px rgba(2, 3, 8, 0.48);
+}
+
+/* Glow effect at bottom of balloon container */
+.balloon-stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 8% 6%;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 70%);
+  filter: blur(16px);
+}
+
+/* Individual balloon element */
+.balloon {
+  position: absolute;
+  width: 112px;
+  aspect-ratio: 0.82;
+  border-radius: 50% 50% 48% 48%;
+  box-shadow: inset -12px -18px 24px rgba(0, 0, 0, 0.15), var(--shadow);
+  will-change: transform;
+  animation: balloonFloat 7.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+/* Highlight on balloon for 3D effect */
+.balloon::before {
+  content: "";
+  position: absolute;
+  inset: 14% 20% auto;
+  height: 28%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+/* String under balloon (pseudo-element) */
+.balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  width: 2px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateX(-50%);
+}
+
+/* Individual balloon colors and positions */
+.balloon-a {
+  top: 12%;
+  left: 12%;
+  background: linear-gradient(180deg, #ffb58d, #ff7b78);
+}
+
+.balloon-b {
+  top: 4%;
+  right: 22%;
+  background: linear-gradient(180deg, #93c5fd, #4f8ae8);
+  animation-duration: 8.2s;
+  animation-delay: 0.6s;
+}
+
+.balloon-c {
+  top: 33%;
+  left: 38%;
+  width: 126px;
+  background: linear-gradient(180deg, #ffd36a, #ff9f43);
+  animation-duration: 7.8s;
+  animation-delay: 0.2s;
+}
+
+.balloon-d {
+  top: 42%;
+  right: 8%;
+  width: 104px;
+  background: linear-gradient(180deg, #8be8c6, #52c9a5);
+  animation-duration: 8.6s;
+  animation-delay: 0.4s;
+}
+
+/* Visual string elements */
+.string {
+  position: absolute;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.string-a { top: 24%; left: 29%; height: 36%; transform: rotate(6deg); }
+.string-b { top: 16%; right: 34%; height: 40%; transform: rotate(-5deg); }
+.string-c { top: 45%; left: 50%; height: 28%; transform: rotate(2deg); }
+.string-d { top: 54%; right: 16%; height: 24%; transform: rotate(-3deg); }
+
+/* ========================================
+   CAKE SECTION
+   ======================================== */
+
+.cake {
+  background:
+    radial-gradient(ellipse at 50% 22%, rgba(255, 211, 127, 0.26), transparent 24%),
+    radial-gradient(ellipse at 18% 68%, rgba(255, 183, 151, 0.2), transparent 28%),
+    radial-gradient(ellipse at 84% 65%, rgba(255, 141, 163, 0.16), transparent 26%),
+    linear-gradient(135deg, rgba(28, 14, 16, 0.98), rgba(18, 12, 20, 0.97) 48%, rgba(38, 20, 14, 0.97));
+  box-shadow:
+    0 0 70px rgba(255, 211, 126, 0.12),
+    0 0 140px rgba(255, 141, 163, 0.06),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.cake::before {
+  background:
+    radial-gradient(ellipse at 30% 32%, rgba(255, 255, 255, 0.1), transparent 22%),
+    radial-gradient(ellipse at 72% 58%, rgba(255, 211, 106, 0.16), transparent 24%);
+}
+
+.cake-layout {
+  gap: 3rem;
+}
+
+/* Container for all cake elements */
+.cake-scene {
+  position: relative;
+  min-height: 560px;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+  filter: drop-shadow(0 0 40px rgba(255, 211, 126, 0.1));
+}
+
+/* Plate under the cake */
+.cake-plate {
+  position: absolute;
+  bottom: 6%;
+  width: min(72%, 440px);
+  height: 30px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.12) 68%, transparent 70%);
+  box-shadow: 0 0 40px rgba(255, 211, 106, 0.16);
+}
+
+/* Glowing halo behind cake */
+.cake-halo {
+  position: absolute;
+  bottom: 12%;
+  width: min(72vw, 460px);
+  height: min(72vw, 460px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 211, 106, 0.18), transparent 58%);
+  filter: blur(6px);
+}
+
+/* Shadow beneath cake */
+.cake-shadow {
+  position: absolute;
+  bottom: 8%;
+  width: min(64vw, 380px);
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0) 70%);
+  filter: blur(8px);
+}
+
+/* Shared positioning for cake elements */
+.cake-layer,
+.cake-drip,
+.cake-candle,
+.cake-flame {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Cake layers: Bottom, middle, and top tiers */
+.cake-layer {
+  box-shadow:
+    inset 0 10px 18px rgba(255, 255, 255, 0.08),
+    inset 0 -16px 24px rgba(0, 0, 0, 0.22),
+    var(--shadow);
+}
+
+.cake-layer-bottom {
+  bottom: 12%;
+  width: min(60vw, 340px);
+  height: 150px;
+  border-radius: 1.8rem;
+  background: linear-gradient(180deg, #8d5b4a, #5d3a31);
+}
+
+.cake-layer-middle {
+  bottom: calc(12% + 120px);
+  width: min(64vw, 380px);
+  height: 86px;
+  border-radius: 1.5rem 1.5rem 1.1rem 1.1rem;
+  background:
+    radial-gradient(circle at 18% 0%, #fff7ef 0 18px, transparent 20px),
+    radial-gradient(circle at 42% 0%, #fff7ef 0 18px, transparent 20px),
+    radial-gradient(circle at 66% 0%, #fff7ef 0 18px, transparent 20px),
+    radial-gradient(circle at 88% 0%, #fff7ef 0 18px, transparent 20px),
+    linear-gradient(180deg, #fff7ef, #ffd8c1);
+}
+
+.cake-layer-top {
+  bottom: calc(12% + 196px);
+  width: min(52vw, 300px);
+  height: 56px;
+  border-radius: 1.2rem 1.2rem 0.9rem 0.9rem;
+  background: linear-gradient(180deg, #ffe9d9, #ffccb0);
+}
+
+/* Frosting drips on the sides */
+.cake-drip {
+  bottom: calc(12% + 182px);
+  width: 22px;
+  height: 32px;
+  border-radius: 0 0 999px 999px;
+  background: #fff3ea;
+  box-shadow: 0 10px 18px rgba(255, 245, 232, 0.14);
+}
+
+.drip-left {
+  margin-left: -88px;
+  height: 40px;
+}
+
+.drip-center {
+  margin-left: -10px;
+  height: 28px;
+}
+
+.drip-right {
+  margin-left: 68px;
+  height: 36px;
+}
+
+/* Candles on top of cake */
+.cake-candle {
+  bottom: calc(12% + 246px);
+  width: 16px;
+  height: 92px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(180deg, #fff 0 12px, #ff8f6b 12px 24px);
+  box-shadow: 0 0 16px rgba(255, 143, 107, 0.2);
+}
+
+.cake-candle::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -12px;
+  width: 10px;
+  height: 16px;
+  border-radius: 999px 999px 48% 48%;
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(-50%);
+}
+
+/* Candle positions */
+.candle-left {
+  margin-left: -56px;
+}
+
+.candle-center {
+  margin-left: 0;
+}
+
+.candle-right {
+  margin-left: 56px;
+}
+
+/* Animated flame on candles */
+.cake-flame {
+  top: -32px;
+  width: 26px;
+  height: 42px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(circle at 50% 35%, #fff9d7 0 22%, #ffd36a 45%, #ff8f6b 75%, transparent 76%);
+  box-shadow: 0 0 40px 9px rgba(255, 211, 106, 0.2);
+  animation: flame 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  transform-origin: center bottom;
+  opacity: 0.92;
+}
+
+.flame-left {
+  animation-delay: 0.1s;
+}
+
+.flame-center {
+  animation-delay: 0.55s;
+}
+
+.flame-right {
+  animation-delay: 0.3s;
+}
+
+/* ========================================
+   FINAL MESSAGE SECTION
+   ======================================== */
+
+.final-message {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 22% 22%, rgba(255, 141, 163, 0.26), transparent 24%),
+    radial-gradient(ellipse at 78% 28%, rgba(140, 236, 203, 0.2), transparent 26%),
+    radial-gradient(ellipse at 50% 72%, rgba(255, 211, 127, 0.16), transparent 28%),
+    linear-gradient(135deg, rgba(13, 9, 18, 0.98), rgba(18, 14, 28, 0.94) 52%, rgba(10, 12, 16, 0.97));
+  box-shadow:
+    0 0 80px rgba(255, 141, 163, 0.12),
+    0 0 160px rgba(158, 199, 255, 0.08);
+}
+
+.final-message::before {
+  background:
+    radial-gradient(ellipse at 32% 62%, rgba(255, 255, 255, 0.08), transparent 20%),
+    radial-gradient(ellipse at 68% 44%, rgba(255, 183, 151, 0.12), transparent 22%);
+}
+
+/* Final card: Glowing text container */
+.final-card {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.03));
+  backdrop-filter: blur(18px) saturate(120%);
+  box-shadow: 0 22px 60px rgba(4, 5, 12, 0.3);
+  text-align: center;
+}
+
+/* Final message heading with extra glow */
+.final-glow {
+  max-width: 11ch;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff9f5;
+  text-shadow:
+    0 0 18px rgba(255, 211, 127, 0.36),
+    0 0 42px rgba(255, 125, 154, 0.24),
+    0 0 72px rgba(158, 199, 255, 0.16);
+  filter: drop-shadow(0 0 24px rgba(255, 211, 127, 0.14));
+}
+
+/* ========================================
+   CONFETTI ANIMATION
+   ======================================== */
+
+.confetti-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Individual confetti particle */
+.confetti {
+  position: absolute;
+  top: -12%;
+  width: 10px;
+  height: 16px;
+  border-radius: 3px;
+  opacity: 0.72;
+  animation: confettiFall 7.5s ease-out infinite;
+  transform-origin: center;
+}
+
+.confetti::before,
+.confetti::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.confetti::before {
+  background: inherit;
+  filter: saturate(1.1);
+}
+
+.confetti::after {
+  width: 65%;
+  height: 65%;
+  inset: auto;
+  right: -2px;
+  bottom: -2px;
+  background: rgba(255, 255, 255, 0.22);
+  opacity: 0.8;
+}
+
+/* Confetti particles with unique colors and positions */
+.confetti-1 { left: 8%; background: #ff7b78; animation-delay: 0s; }
+.confetti-2 { left: 15%; background: #ffd36a; width: 8px; height: 14px; animation-delay: 1.2s; }
+.confetti-3 { left: 24%; background: #93c5fd; animation-delay: 2.1s; }
+.confetti-4 { left: 35%; background: #8be8c6; width: 7px; height: 13px; animation-delay: 0.8s; }
+.confetti-5 { left: 48%; background: #ffbf86; animation-delay: 2.8s; }
+.confetti-6 { left: 58%; background: #ff6f91; width: 8px; height: 15px; animation-delay: 1.6s; }
+.confetti-7 { left: 68%; background: #7dd3fc; animation-delay: 3.2s; }
+.confetti-8 { left: 76%; background: #ffd36a; width: 7px; height: 12px; animation-delay: 0.4s; }
+.confetti-9 { left: 86%; background: #8be8c6; animation-delay: 1.9s; }
+.confetti-10 { left: 92%; background: #ff8aa5; width: 8px; height: 14px; animation-delay: 2.5s; }
+
+/* ========================================
+   ANIMATIONS & KEYFRAMES
+   ======================================== */
+
+/* Balloon floating animation: Gentle up-and-down movement */
+@keyframes balloonFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(2deg);
+  }
+}
+
+/* Twinkle effect: Pulsing brightness and scale */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.12);
+  }
+}
+
+/* Flame flickering: Subtle scale and rotation */
+@keyframes flame {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(0.98) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05) rotate(2deg);
+  }
+}
+
+/* Scroll indicator bobbing: Moves down and fades */
+@keyframes scrollCue {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translate(-50%, 0);
+  }
+  45% {
+    opacity: 1;
+    transform: translate(-50%, 12px);
+  }
+  70% {
+    opacity: 0.55;
+    transform: translate(-50%, 18px);
+  }
+}
+
+/* Section fade-in: Slides up while fading in on scroll */
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Confetti falling: Falls down the page with rotation */
+@keyframes confettiFall {
+  0% {
+    transform: translate3d(0, -15vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(0, 115vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - TABLET (980px)
+   ======================================== */
+
+@media (max-width: 980px) {
+  /* Adjust navigation bar on tablets */
+  .topbar {
+    inset-inline: 0.75rem;
+    padding: 0.8rem 0.95rem;
+    border-radius: 1.3rem;
+    gap: 0.75rem;
+  }
+
+  .topbar > a {
+    font-size: 0.86rem;
+  }
+
+  .topbar nav {
+    gap: 0.7rem;
+  }
+
+  .topbar nav a {
+    font-size: 0.85rem;
+  }
+
+  /* Stack hero and split layouts to single column */
+  .hero,
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .hero .scene {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .hero {
+    gap: 1.5rem;
+  }
+
+  .split-layout {
+    gap: 1.5rem;
+  }
+
+  .scroll-indicator {
+    margin-top: 1.75rem;
+  }
+
+  /* Reduce art container heights */
+  .hero-art,
+  .balloon-stage,
+  .cake-scene {
+    min-height: 430px;
+  }
+
+  /* Adjust memory card grid */
+  .memory-grid {
+    gap: 0.9rem;
+    grid-template-columns: 1fr;
+  }
+
+  .memory-card {
+    min-height: 160px;
+  }
+
+  /* Remove tilt on cards */
+  .tilt-left,
+  .tilt-right {
+    transform: none;
+  }
+
+  /* Adjust cake layer sizes */
+  .cake-layer-bottom {
+    width: min(70vw, 340px);
+  }
+
+  .cake-layer-middle {
+    width: min(76vw, 380px);
+  }
+
+  .cake-layer-top {
+    width: min(60vw, 300px);
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE (640px)
+   ======================================== */
+
+@media (max-width: 640px) {
+  .panel {
+    padding: 5.9rem 0.85rem 1.6rem;
+  }
+
+  /* Vertical navigation bar on mobile */
+  .topbar {
+    inset: 0.6rem 0.6rem auto;
+    justify-content: center;
+    border-radius: 1rem;
+    padding: 0.75rem 0.8rem;
+    flex-direction: column;
+  }
+
+  .topbar nav {
+    justify-content: center;
+    width: 100%;
+    gap: 0.55rem 0.85rem;
+  }
+
+  .topbar nav a {
+    font-size: 0.8rem;
+  }
+
+  .topbar > a {
+    font-size: 0.8rem;
+  }
+
+  /* Adjust text sizing */
+  .lead {
+    font-size: 1rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .cta-row {
+    flex-direction: column;
+  }
+
+  .hero {
+    gap: 1.15rem;
+  }
+
+  .scene {
+    gap: 1rem;
+  }
+
+  /* Scale down headings for mobile */
+  h1 {
+    font-size: clamp(2.8rem, 16vw, 4.5rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    max-width: 22rem;
+  }
+
+  .memory-card {
+    min-height: 150px;
+    padding: 1.05rem;
+  }
+
+  .hero-art,
+  .balloon-stage,
+  .cake-scene {
+    min-height: 320px;
+  }
+
+  /* Smaller balloons */
+  .balloon {
+    width: 78px;
+  }
+
+  .balloon-c {
+    width: 88px;
+  }
+
+  .balloon::after {
+    height: 120px;
+  }
+
+  /* Adjusted cake sizes */
+  .cake-layer-bottom {
+    width: min(78vw, 300px);
+    height: 128px;
+  }
+
+  .cake-layer-middle {
+    width: min(84vw, 330px);
+    height: 74px;
+  }
+
+  .cake-layer-top {
+    width: min(64vw, 240px);
+    height: 46px;
+  }
+
+  .cake-candle {
+    width: 14px;
+    height: 78px;
+  }
+
+  .candle-left {
+    margin-left: -42px;
+  }
+
+  .candle-right {
+    margin-left: 42px;
+  }
+
+  .cake-flame {
+    width: 22px;
+    height: 34px;
+    top: -26px;
+  }
+
+  .cake-drip {
+    width: 18px;
+  }
+
+  .drip-left {
+    margin-left: -72px;
+  }
+
+  .drip-right {
+    margin-left: 54px;
+  }
+
+  .final-glow {
+    max-width: 12ch;
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  /* Smaller confetti */
+  .confetti {
+    width: 8px;
+    height: 12px;
+  }
+
+  .confetti-2,
+  .confetti-4,
+  .confetti-6,
+  .confetti-8,
+  .confetti-10 {
+    height: 11px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - SMALL PHONE (420px)
+   ======================================== */
+
+@media (max-width: 420px) {
+  .panel {
+    padding-inline: 0.65rem;
+  }
+
+  .topbar {
+    inset: 0.5rem 0.5rem auto;
+  }
+
+  .topbar nav {
+    gap: 0.45rem 0.7rem;
+  }
+
+  .topbar nav a {
+    font-size: 0.75rem;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-subtitle,
+  .lead {
+    max-width: none;
+  }
+
+  .scroll-indicator {
+    margin-top: 1.25rem;
+    font-size: 0.72rem;
+  }
+
+  .scroll-indicator span {
+    width: 26px;
+    height: 42px;
+  }
+
+  .memory-card span {
+    margin-bottom: 0.85rem;
+  }
+
+  .cake-halo {
+    width: min(84vw, 330px);
+    height: min(84vw, 330px);
+  }
+
+  .final-card {
+    padding: 1.4rem;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY - PREFERS REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .confetti {
+    animation: none !important;
+  }
 }
