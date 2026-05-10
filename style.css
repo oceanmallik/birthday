@@ -158,7 +158,7 @@ h3 {
 
 /* Hero title: Large opening heading with multi-layer glow effect */
 .hero-title {
-  max-width: 18ch;
+  max-width: 26ch;
   margin-top: 0.15rem;
   color: #fefcf9;
   /* Multi-layer text-shadow creates warm-to-cool glow (gold → rose → sky blue) */
