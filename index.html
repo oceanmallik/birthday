@@ -12,6 +12,7 @@
     <a href="#hero">Birthday Wishes</a>
     <nav aria-label="Section navigation">
       <a href="#memories">Memories</a>
+      <a href="#gallery">Gallery</a>
       <a href="#balloons">Balloons</a>
       <a href="#cake">Cake</a>
       <a href="#final-message">Final Message</a>
@@ -36,6 +37,7 @@
           </div>
       </div>
       <div class="hero-art" aria-hidden="true">
+        <img class="hero-photo" src="photos/photo1.jpg" alt="Celebration" />
         <span class="spark spark-one"></span>
         <span class="spark spark-two"></span>
         <span class="spark spark-three"></span>
@@ -49,28 +51,97 @@
       <div class="scene split-layout">
         <div>
           <p class="eyebrow">Memories</p>
-          <h2>Little moments that stay bright.</h2>
-          <p class="lead">The best birthdays are built from tiny scenes: shared laughs, surprise plans, and the kind of stories that get retold every year.</p>
+          <h2>Moments that become forever.</h2>
+          <p class="lead">The brightest birthdays bloom from small, glowing scenes: shared laughter, thoughtful gestures, and stories that sparkle with each retelling.</p>
         </div>
         <div class="memory-grid" aria-label="Memory cards">
-          <article class="memory-card tilt-left">
-            <span>01</span>
-            <h3>First laugh</h3>
-            <p>The kind that started the whole evening on the right note.</p>
-          </article>
-          <article class="memory-card tilt-right">
-            <span>02</span>
-            <h3>Golden hour</h3>
-            <p>Soft light, warm smiles, and one photo worth keeping forever.</p>
-          </article>
-          <article class="memory-card tilt-left alt">
-            <span>03</span>
-            <h3>Midnight wish</h3>
-            <p>A quiet wish made just before the candles were lit.</p>
-          </article>
+            <article class="memory-card tilt-left">
+              <span>01</span>
+              <h3>The first spark</h3>
+              <p>That moment when the evening found its light—a laugh that echoed and set everything in motion.</p>
+            </article>
+            <article class="memory-card tilt-right">
+              <span>02</span>
+              <h3>Golden hour glow</h3>
+              <p>Soft light spilling over warm skin and genuine smiles, framed in a way that feels eternal.</p>
+            </article>
+            <article class="memory-card tilt-left alt">
+              <span>03</span>
+              <h3>Whispered wishes</h3>
+              <p>A quiet, tender moment before the candles burned bright—a dream made into words.</p>
+            </article>
         </div>
       </div>
     </section>
+
+      <!-- SECTION: GALLERY - display all photos from the photos/ folder -->
+      <section id="gallery" class="panel gallery">
+        <div class="scene gallery-scene">
+          <div class="gallery-header">
+            <div>
+              <p class="eyebrow">Gallery</p>
+              <h2>Captured moments</h2>
+              <p class="lead">A curated wall of photos from the day, arranged like prints in a real gallery instead of a plain thumbnail grid.</p>
+            </div>
+            <div class="gallery-note">
+              <span class="gallery-note-label">Collection</span>
+              <strong>5 photographs</strong>
+              <p>Open any frame to view the full image.</p>
+            </div>
+          </div>
+          <div class="gallery-wall" aria-live="polite">
+            <figure class="gallery-card gallery-card-large">
+              <a href="photos/photo4.jpg" class="gallery-link">
+                <img src="photos/photo4.jpg" alt="Birthday portrait in warm light">
+              </a>
+              <figcaption>
+                <span>Featured frame</span>
+                <strong>Birthday portrait</strong>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-card gallery-card-tall">
+              <a href="photos/photo1.jpg" class="gallery-link">
+                <img src="photos/photo1.jpg" alt="A tall celebratory photo from the birthday day">
+              </a>
+              <figcaption>
+                <span>Moment 01</span>
+                <strong>Bright opening</strong>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-card gallery-card-wide">
+              <a href="photos/photo2.jpg" class="gallery-link">
+                <img src="photos/photo2.jpg" alt="A warm candid birthday photo">
+              </a>
+              <figcaption>
+                <span>Moment 02</span>
+                <strong>Shared laughter</strong>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-card gallery-card-square">
+              <a href="photos/photo3.jpg" class="gallery-link">
+                <img src="photos/photo3.jpg" alt="A candid birthday snapshot">
+              </a>
+              <figcaption>
+                <span>Moment 03</span>
+                <strong>In the frame</strong>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-card gallery-card-portrait">
+              <a href="photos/photo5.jpg" class="gallery-link">
+                <img src="photos/photo5.jpg" alt="A vertical birthday photo with a soft glow">
+              </a>
+              <figcaption>
+                <span>Moment 04</span>
+                <strong>Soft glow</strong>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
 
     <!-- SECTION 3: BALLOONS - Floating animated balloons -->
     <section id="balloons" class="panel balloons">
