@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Mobile-only message -->
+  <div class="mobile-notice" aria-label="Desktop only notice">
+    <div class="mobile-notice-content">
+      <p>🎂</p>
+      <h2>Desktop Experience Only</h2>
+      <p>This birthday celebration is best experienced on a desktop or tablet.</p>
+      <p>Please open this on a larger screen to enjoy the full experience!</p>
+    </div>
+  </div>
+
   <!-- NAVIGATION BAR: Fixed header with logo and section links -->
   <header class="topbar">
     <a href="/">Birthday Wishes</a>
@@ -63,6 +73,14 @@
           <span class="mini-confetti mini-confetti-7"></span>
           <span class="mini-confetti mini-confetti-8"></span>
         </div>
+        <div class="birthday-orbit" aria-hidden="true">
+          <span class="orbit-ring orbit-ring-one"></span>
+          <span class="orbit-ring orbit-ring-two"></span>
+          <span class="orbit-dot orbit-dot-1"></span>
+          <span class="orbit-dot orbit-dot-2"></span>
+          <span class="orbit-dot orbit-dot-3"></span>
+          <span class="orbit-dot orbit-dot-4"></span>
+        </div>
         <img class="hero-photo" src="photos/photo2.jpg" alt="Celebration" />
       </div>
     </section>
@@ -76,14 +94,22 @@
           <p class="lead">Color does a lot of the work here. The balloons float in layered clusters so the page feels alive as you scroll through it.</p>
         </div>
         <div class="balloon-stage" aria-hidden="true">
-          <span class="balloon balloon-a"></span>
-          <span class="balloon balloon-b"></span>
-          <span class="balloon balloon-c"></span>
-          <span class="balloon balloon-d"></span>
-          <span class="string string-a"></span>
-          <span class="string string-b"></span>
-          <span class="string string-c"></span>
-          <span class="string string-d"></span>
+          <div class="balloon-figure balloon-figure-a">
+            <span class="balloon balloon-a"></span>
+            <span class="balloon-rope"></span>
+          </div>
+          <div class="balloon-figure balloon-figure-b">
+            <span class="balloon balloon-b"></span>
+            <span class="balloon-rope"></span>
+          </div>
+          <div class="balloon-figure balloon-figure-c">
+            <span class="balloon balloon-c"></span>
+            <span class="balloon-rope"></span>
+          </div>
+          <div class="balloon-figure balloon-figure-d">
+            <span class="balloon balloon-d"></span>
+            <span class="balloon-rope"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -208,6 +234,7 @@
         <p class="eyebrow">Final Message</p>
         <h2 class="final-glow">Wishing You Happiness Forever ✨</h2>
         <p class="lead">Happy birthday. May every year ahead bring light, laughter, and unforgettable moments.</p>
+        <p class="birthday-finish">Cake, confetti, candles, and one very bright wish for the year ahead.</p>
         <a class="button primary" href="#hero">Back to the top</a>
       </div>
     </section>
