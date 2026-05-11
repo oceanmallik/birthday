@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Birthday Wishes</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
   <!-- Mobile-only message -->
@@ -225,6 +226,11 @@
   <!-- Container for dynamically created balloons -->
   <div id="balloonContainer" aria-hidden="true"></div>
 
+  <!-- Background audio: happy birthday song with loop and autoplay (fallback control for blocked autoplay) -->
+  <audio id="bgAudio" src="happybirthday.mp3" loop preload="auto"></audio>
+
+  <button id="audioControl" aria-label="Play background music" style="position:fixed;right:16px;bottom:88px;z-index:1200;width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.12);font-size:20px;display:none">🔈</button>
+
   <script>
     const launchBtn = document.getElementById('launchBalloonsBtn');
     const balloonContainer = document.getElementById('balloonContainer');
@@ -254,6 +260,37 @@
         }, (randomDuration + randomDelay) * 1000);
       }
     });
+    // Background audio: try autoplay, show fallback control if blocked
+    (function setupBackgroundAudio(){
+      const audio = document.getElementById('bgAudio');
+      const ctrl = document.getElementById('audioControl');
+
+      function updateButton(){
+        ctrl.textContent = audio.paused ? '🔈' : '🔊';
+        ctrl.setAttribute('aria-label', audio.paused ? 'Play background music' : 'Pause background music');
+      }
+
+      // Try to play on load
+      audio.play().then(() => {
+        // playing succeeded; keep control hidden
+      }).catch(() => {
+        // autoplay blocked — show lightweight control so user can enable sound
+        ctrl.style.display = 'flex';
+      });
+
+      ctrl.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play().catch(() => {});
+        } else {
+          audio.pause();
+        }
+        updateButton();
+      });
+
+      // Keep button state in sync if audio is played/paused from elsewhere
+      audio.addEventListener('play', updateButton);
+      audio.addEventListener('pause', updateButton);
+    })();
   </script>
 </body>
 </html>
